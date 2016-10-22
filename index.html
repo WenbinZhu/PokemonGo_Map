@@ -8,14 +8,7 @@
         <div id='printoutPanel'></div>
         
         <div id='myMap' style='width: 100vw; height: 100vh;'></div>
-        <script type='text/javascript'>
-            var map;
-            function loadMapScenario() {
-                map = new Microsoft.Maps.Map(document.getElementById('myMap'), {
-                    credentials: 'AtzePqCL6lUAr5H98sJ6JHEYBRy5w2ryt_nIsLv3DrpQglPNZoUSEbyB_dWLFHpd'
-                });
-            }           
-        </script>
+        <script type='text/javascript' src='map_view.js'></script>
         <script type='text/javascript' src='https://www.bing.com/api/maps/mapcontrol?branch=release&callback=loadMapScenario' async defer></script>
     </body>
 </html>
