@@ -22,9 +22,13 @@ map_items = [
 //put pokemon image on map
 function get_pokemon_layer_from_map_items(map_items) {
     var pushpins = [];
-    var pushpin = new Microsoft.Maps.Pushpin(new Microsoft.Maps.Location(map_items["latitude"], map_items["longitude"]), 
-                                             { icon: "images/pushpin_images/pokemon/" + map_items["pokemon_id"] + ".png" });
-    pushpins.push(pushpin);
+    for (var i in map_items) {
+        map_item = map_items[i];
+        var pushpin = new Microsoft.Maps.Pushpin(new Microsoft.Maps.Location(map_items["latitude"], map_items["longitude"]), 
+                                                { icon: "images/pushpin_images/pokemon/" + map_item["pokemon_id"] + ".png" });
+        pushpins.push(pushpin);
+    }
+    
     var layer = new Microsoft.Maps.Layer();
     layer.add(pushpins);
     
