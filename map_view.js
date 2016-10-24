@@ -52,4 +52,13 @@ function add_pokemon_layer() {
     map.layers.insert(pokemon_layer);
 }
 
+
 //add pokemon count down refresh
+function refresh_pokemon_layer() {
+    var pokemon_layer = get_pokemon_layer_from_map_items(map_items);
+    map.layers.clear();
+    map.layers.insert(pokemon_layer);
+}
+
+
+window.setInterval(refresh_pokemon_layer, 1000);
