@@ -11,10 +11,10 @@ function loadMapScenario() {
 //define pokemon data format
 map_items = [
     {
-        "pokemon_id" : 5,
+        "pokemon_id" : 4,
         "expire" : 1476338470000,
-        "latitude" : 40.7477663774335,
-        "longitude" : -73.998796414357
+        "latitude" : 32.870739,
+        "longitude" : -117.210426
     }
 ]
 
