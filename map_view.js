@@ -13,8 +13,8 @@ map_items = [
     {
         "pokemon_id" : 5,
         "expire" : 1476338470000,
-        "latitude" : 32.871181,
-        "longitude" : -117.210763
+        "latitude" : 40.7477663774335,
+        "longitude" : -73.998796414357
     }
 ]
 
@@ -24,7 +24,7 @@ function get_pokemon_layer_from_map_items(map_items) {
     var pushpins = [];
     for (var i in map_items) {
         map_item = map_items[i];
-        var pushpin = new Microsoft.Maps.Pushpin(new Microsoft.Maps.Location(map_items["latitude"], map_items["longitude"]), 
+        var pushpin = new Microsoft.Maps.Pushpin(new Microsoft.Maps.Location(map_item["latitude"], map_item["longitude"]), 
                                                 { icon: "images/pushpin_images/pokemon/" + map_item["pokemon_id"] + ".png" });
         pushpins.push(pushpin);
     }
