@@ -72,7 +72,7 @@ function refresh_pokemon_data() {
     var params = {
         //This is where any header, path, or querystring request params go. The key is the parameter named as defined in the API
         east : bounds.getEast(),
-        notrh : bounds.getNorth(),
+        north : bounds.getNorth(),
         south : bounds.getSouth(),
         west : bounds.getWest()
     };
