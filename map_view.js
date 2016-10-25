@@ -1,5 +1,3 @@
-var apigClient = apigClientFactory.newClient();
-
 var map_manager = {
     map : null,
     map_items : []
@@ -69,6 +67,7 @@ function refresh_pokemon_layer() {
 //connect REST API
 function refresh_pokemon_data() {
     var bounds = map_manager.map.getBounds();
+    var apigClient = apigClientFactory.newClient();
     
     var params = {
         //This is where any header, path, or querystring request params go. The key is the parameter named as defined in the API
