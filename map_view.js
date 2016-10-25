@@ -5,12 +5,12 @@ var map_manager = {
 
 //define pokemon data format
 map_manager.map_items = [
-    {
-        "pokemon_id" : 4,
-        "expire" : 1477296019000,
-        "latitude" : 32.870739,
-        "longitude" : -117.210426
-    }
+//     {
+//         "pokemon_id" : 4,
+//         "expire" : 1477296019000,
+//         "latitude" : 32.870739,
+//         "longitude" : -117.210426
+//     }
 ]
 
 function loadMapScenario() {
