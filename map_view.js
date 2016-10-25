@@ -64,4 +64,30 @@ function refresh_pokemon_layer() {
 }
 
 
+//connect REST API
+function refresh_pokemon_data() {
+    var bounds = map_manager.map.getBounds();
+    
+    var params = {
+        //This is where any header, path, or querystring request params go. The key is the parameter named as defined in the API
+        east : bounds.getEast(),
+        notrh : bounds.getNorth(),
+        south : bounds.getSouth(),
+        west : bounds.getWest()
+    };
+    
+    var body = {};
+    var additionalParams = {};
+
+    apigClient.methodName(params, body, additionalParams)
+    .then(function(result){
+        //This is where you would put a success callback
+        map_manager.map_items = result.data;
+    }).catch( function(result){
+        //This is where you would put an error callback
+        console.log(result);
+    });   
+}
+
+window.setInterval(refresh_pokemon_data, 999);
 window.setInterval(refresh_pokemon_layer, 1000);
