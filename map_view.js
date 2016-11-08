@@ -38,10 +38,7 @@ function get_pokemon_layer_from_map_items(map_items) {
     var pushpins = [];
     for (var i in map_manager.map_items) {
         map_item = map_manager.map_items[i];
-        
-        if (map_item["pokemon_id"] > 151)
-            continue;
-        
+
         var pushpin = new Microsoft.Maps.Pushpin(new Microsoft.Maps.Location(map_item["latitude"], map_item["longitude"]), 
                                                 { icon: "images/pushpin_images/pokemon/" + map_item["pokemon_id"] + ".png",
                                                   title: get_count_down_time_from_expire_epoch(map_item["expire"]) });
