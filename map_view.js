@@ -39,7 +39,7 @@ function get_pokemon_layer_from_map_items(map_items) {
     for (var i in map_manager.map_items) {
         map_item = map_manager.map_items[i];
         
-        if (map_item["pokemon_id"] > 200)
+        if (map_item["pokemon_id"] > 151)
             continue;
         
         var pushpin = new Microsoft.Maps.Pushpin(new Microsoft.Maps.Location(map_item["latitude"], map_item["longitude"]), 
