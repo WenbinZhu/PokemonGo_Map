@@ -26,8 +26,14 @@ function get_count_down_time_from_expire_epoch(epoch) {
     var time_left = epoch / 1000 - now_time;
     var minute = Math.floor(time_left / 60);
     var second = Math.floor(time_left % 60);
+    if (minute < 0 || second < 0) {
+        return 00 + ":" + 00;
+    }
     if (second >= 0 && second < 10) {
         second = "0" + second;
+    }
+    if (minute >= 0 && minute < 10) {
+        minute = "0" + minute;
     }
     
     return minute + ":" + second;
