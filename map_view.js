@@ -17,6 +17,11 @@ function loadMapScenario() {
     map_manager.map = new Microsoft.Maps.Map(document.getElementById('myMap'), {
         credentials: 'AtzePqCL6lUAr5H98sJ6JHEYBRy5w2ryt_nIsLv3DrpQglPNZoUSEbyB_dWLFHpd'
     });
+    map_manager.map.setView({
+            // Use time square as starting point.
+            center: new Microsoft.Maps.Location(40.7553085,-73.9844294),
+            zoom: 15
+        });
     
     add_pokemon_layer();
 }
