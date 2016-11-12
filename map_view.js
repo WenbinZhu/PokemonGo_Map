@@ -13,7 +13,7 @@ map_manager.map_items = [
 //     }
 ]
 
-function set_user_current_location() {
+function loadMapScenario() {
     if (navigator.geolocation) {
         function set_initial_view(position) {
             map_manager.map.setView({
@@ -21,16 +21,13 @@ function set_user_current_location() {
                 zoom: 15
             });
         }
-        navigator.geolocation.getCurrentPosition(set_initial_view);
     }
-}
-
-function loadMapScenario() {
+    
     map_manager.map = new Microsoft.Maps.Map(document.getElementById('myMap'), {
         credentials: 'AtzePqCL6lUAr5H98sJ6JHEYBRy5w2ryt_nIsLv3DrpQglPNZoUSEbyB_dWLFHpd'
     });
     
-    set_user_current_location();
+    navigator.geolocation.getCurrentPosition(set_initial_view);
     
     add_pokemon_layer();
 }
