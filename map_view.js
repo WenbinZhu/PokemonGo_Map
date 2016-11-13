@@ -116,6 +116,7 @@ function refresh_pokemon_data() {
     // hide and show progress_bar logic
     var area = (params.north - params.south) * (params.east - params.west);
     var progress_bar = document.getElementById('map_progressbar');
+    console.log(map_manager.map_items.length + " " + area);
     if (map_manager.map_items.length / area > 0.2)
         progress_bar.style.visibility = "hidden";
     else
