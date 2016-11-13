@@ -19,9 +19,9 @@ html, body {
 }
 
 .demo-avatar {
-  width: 24px;
-  height: 24px;
-  border-radius: 12px;
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
 }
 .demo-layout .demo-header .mdl-textfield {
   padding: 0px;
