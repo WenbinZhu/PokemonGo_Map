@@ -1,5 +1,8 @@
 # PokemonGo Map
 ### A Pokémon Map Service which shows real-time info of nearby catchable Pokémons
+<p align="left">
+  <img src="images/demo.png" width=86%/>
+</p>
 
 - Front-end: Html/Javascript/CSS/Bing Map, Hosted by Github Pages
 - Back-end: Python, Django/Docker/Postgresql/Redis/Google S2, Hosted by AWS services: Elastic BeanStalk, RDS and SQS
