@@ -59,8 +59,8 @@ function get_count_down_time_from_expire_epoch(epoch) {
 //put pokemon image on map
 function get_pokemon_layer_from_map_items(map_items) {
     var pushpins = [];
-    for (var i in map_manager.map_items) {
-        map_item = map_manager.map_items[i];
+    for (var i in map_items) {
+        map_item = map_items[i];
 
         var pushpin = new Microsoft.Maps.Pushpin(new Microsoft.Maps.Location(map_item["latitude"], map_item["longitude"]), 
                                                 { icon: "images/pushpin_images/pokemon/" + map_item["pokemon_id"] + ".png",
@@ -70,6 +70,13 @@ function get_pokemon_layer_from_map_items(map_items) {
     
     var layer = new Microsoft.Maps.Layer();
     layer.add(pushpins);
+    
+    // hide and show progress_bar logic
+    var progress_bar = document.getElementById('map_progressbar');
+    if (map_items.length > 20)
+        progress_bar.style.visibility = "hidden";
+    else
+        progress_bar.style.visibility = "";
     
     return layer;
 }
