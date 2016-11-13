@@ -71,13 +71,6 @@ function get_pokemon_layer_from_map_items(map_items) {
     var layer = new Microsoft.Maps.Layer();
     layer.add(pushpins);
     
-    // hide and show progress_bar logic
-    var progress_bar = document.getElementById('map_progressbar');
-    if (map_items.length > 20)
-        progress_bar.style.visibility = "hidden";
-    else
-        progress_bar.style.visibility = "";
-    
     return layer;
 }
 
@@ -119,6 +112,13 @@ function refresh_pokemon_data() {
             //This is where you would put an error callback
             console.log(result);
     });   
+    
+    // hide and show progress_bar logic
+    var progress_bar = document.getElementById('map_progressbar');
+    if (map_manger.map_items.length > 20)
+        progress_bar.style.visibility = "hidden";
+    else
+        progress_bar.style.visibility = "";
 }
 
 window.setInterval(refresh_pokemon_layer, 1000);
