@@ -62,20 +62,28 @@
           </ul>
         </div>
       </header>
-      <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-800 mdl-color-text--blue-grey-50">
+      <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
         <header class="demo-drawer-header">
-          <img src="images/pushpin_images/fort/pokeball.png" class="demo-avatar">
+          <img src="images/icon.png" class="demo-avatar">
           <div class="demo-avatar-dropdown">
             <span>wez180@eng.ucsd.edu</span>
+            <div class="mdl-layout-spacer"></div>
+            <button id="accbtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+              <i class="material-icons" role="presentation">arrow_drop_down</i>
+              <span class="visuallyhidden">Accounts</span>
+            </button>
+
           </div>
         </header>
         <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
           <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i>Pokemon</a>
           <a class="mdl-navigation__link" href=#><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">gps_fixed</i>PokeStop</a>
           <a class="mdl-navigation__link" href=#><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">flash_on</i>Gym</a>
+          <div class="mdl-layout-spacer"></div>
+          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">help_outline</i><span class="visuallyhidden">Help</span></a>
         </nav>
       </div>
-      <main class="mdl-layout__content mdl-color-grey-100">
+      <main class="mdl-layout__content mdl-color--grey-100">
         <div class="mdl-grid demo-content">
             <div id='myMap' style='width: 110vw; height: 82vh;'></div>
                 <script type='text/javascript' src='map_view.js'></script>
