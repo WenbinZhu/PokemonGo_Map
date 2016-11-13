@@ -193,7 +193,7 @@ class PGoApi(object):
         for cell in surrounding_cells:
             if cell not in result:
                 result[cell] = []
-            for sub_timestamp in range(int(timestamp - 300), int(timestamp + 300), 60):
+            for sub_timestamp in range(int(timestamp - 240), int(timestamp + 240), 60):
                 result[cell] += self.generate_pokemon_by_cellid_timestamp(cell, sub_timestamp, 1)
 
 

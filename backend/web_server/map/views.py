@@ -35,7 +35,7 @@ def break_area_to_cells(north, south, west, east):
     p1 = s2sphere.LatLng.from_degrees(north, west)
     p2 = s2sphere.LatLng.from_degrees(south, east)
     rect = s2sphere.LatLngRect.from_point_pair(p1, p2)
-    if rect.area() * 1e8 > 7:
+    if rect.area() * 1e8 > 8.5:
         return []
 
     cell_ids = region.get_covering(rect)
