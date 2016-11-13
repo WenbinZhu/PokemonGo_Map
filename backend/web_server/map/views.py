@@ -1,6 +1,7 @@
 import os
 import json
 import boto3
+import redis
 import logging
 import s2sphere
 
@@ -9,6 +10,8 @@ from django.http import HttpResponse
 from db_accessor import get_pokemons_from_db
 
 SQS_QUEUE_NAME = os.environ['SQS_NAME']
+REDIS_HOST = os.environ['REDIS_HOST']
+REDIS_PORT = os.environ['REDIS_PORT']
 
 def pokemons(request):
     # get latitude and longitude info
@@ -35,7 +38,7 @@ def break_area_to_cells(north, south, west, east):
     p1 = s2sphere.LatLng.from_degrees(north, west)
     p2 = s2sphere.LatLng.from_degrees(south, east)
     rect = s2sphere.LatLngRect.from_point_pair(p1, p2)
-    if rect.area() * 1e8 > 8.5:
+    if rect.area() * 1e8 > 10:
         return []
 
     cell_ids = region.get_covering(rect)
@@ -44,14 +47,24 @@ def break_area_to_cells(north, south, west, east):
 
 
 def scan_area(north, south, west, east):
-    result = []
-
     cell_ids = break_area_to_cells(north, south, west, east)
+    if cell_ids == []:
+        return
 
     work_queue = boto3.resource('sqs', region_name=os.environ['SQS_REGION']).get_queue_by_name(QueueName=SQS_QUEUE_NAME)
-    
-    for cell_id in cell_ids:
-        print cell_id
-        work_queue.send_message(MessageBody=json.dumps({'cell_id': cell_id}))
+    redis_client = redis.StrictRedis(host=REDIS_HOST, port=REDIS_PORT)
 
-    return result
+    # query redis server for cell_ids
+    redis_response = redis_client.mget(cell_ids)
+
+    # for i, cell_id in enumerate(cell_ids):
+    #     print cell_id
+    #     work_queue.send_message(MessageBody=json.dumps({'cell_id': cell_id}))
+
+    for i, cell_id in enumerate(cell_ids):
+        if redis_response[i] == None:
+            print cell_id, 'already existes in redis'
+            work_queue.send_message(MessageBody=json.dumps({'cell_id': cell_id}))
+            redis_client.setex(cell_id, 30, "1")
+        else:
+            print cell_id, 'not in redis'

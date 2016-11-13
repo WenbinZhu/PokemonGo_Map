@@ -1,5 +1,6 @@
 import os
 import json
+# import redis
 import logging
 
 from django.shortcuts import render
@@ -15,6 +16,17 @@ logger = logging.getLogger("worker")
 class Config():
     pass
 
+
+# def cell_in_redis(cell_id):
+#     redis_client = redis.StrictRedis(host=os.environ["REDIS_HOST"], port=os.environ['REDIS_PORT'])
+#     
+#     if cell_id in redis_client:
+#         return True
+# 
+#     redis_client.setex(cell_id, 30, '1')
+#     return False
+
+
 # Create your views here.
 def add_crawl_point(request):
     logger.info("I'm in add_crawl_point")
@@ -24,6 +36,9 @@ def add_crawl_point(request):
     # get cell id from request
     request_obj = json.loads(request.body)
     cell_id = request_obj['cell_id']
+
+    # if cell_in_redis(cell_id):
+    #     return HttpResponse("Cell_id in Redis, No Need Crawling")
 
     # call my search api
     config = Config()
