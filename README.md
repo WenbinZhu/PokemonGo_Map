@@ -4,7 +4,7 @@
   <img src="images/demo.png" width=86%/>
 </p>
 
-- Front-end: Html/Javascript/CSS/Bing Map, Hosted by Github Pages
+- Front-end: HTML/Javascript/CSS/Bing Map, Hosted by Github Pages
 - Back-end: Python, Django/Docker/Postgresql/Redis/Google S2, Hosted by AWS services: Elastic BeanStalk, RDS and SQS
 - Front and Back end Connected through API Gateway
 - Mock crawling apis used only due to legal issues
