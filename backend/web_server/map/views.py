@@ -63,8 +63,8 @@ def scan_area(north, south, west, east):
 
     for i, cell_id in enumerate(cell_ids):
         if redis_response[i] == None:
-            print cell_id, 'already existes in redis'
+            print cell_id, 'not in redis'
             work_queue.send_message(MessageBody=json.dumps({'cell_id': cell_id}))
             redis_client.setex(cell_id, 30, "1")
         else:
-            print cell_id, 'not in redis'
+            print cell_id, 'already exists in redis'
