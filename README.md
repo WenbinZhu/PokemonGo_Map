@@ -8,6 +8,7 @@
 - Back-end: Python, Django/Docker/Postgresql/Redis/Google S2, Hosted by AWS services: Elastic BeanStalk, RDS and SQS
 - Front and Back end Connected through API Gateway
 - Mock crawling apis used only due to legal issues
+- The real crawling api is given by [this repo](https://github.com/pogodevorg/pgoapi)
 
 
 ### Back-end architecture
